@@ -1,6 +1,13 @@
 #PagSeguro Python API
 É um simples módulo para criar transações e receber o status de notificação.
 
+
+##Instalando
+
+```
+pip install pagseguro-api-v2
+```
+
 ##Inicializando a API com SandBox
 
 Caso você esteja trabalhando em ambiente de produção, não é necessário instanciar a configuração
