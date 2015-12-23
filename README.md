@@ -4,7 +4,7 @@
 
 ##Instalando
 
-```
+```bash
 pip install pagseguro-api-v2
 ```
 
@@ -12,7 +12,7 @@ pip install pagseguro-api-v2
 
 Caso você esteja trabalhando em ambiente de produção, não é necessário instanciar a configuração
 
-```
+```python
 from pagseguro import PagSeguro, SandBoxConfig
 config = SandBoxConfig()
 pagseguro = PagSeguro(token='seu-token',
@@ -23,7 +23,7 @@ pagseguro = PagSeguro(token='seu-token',
 
 Antes de tentarmos fazer o checkout da ordem, é necessário adicionar items.
 
-```
+```python
 pagseguro.add_item(10201, 'O nome do item', price='100.00')
 pagseguro.add_item(10202, 'O nome do item', price='200.00')
 ```
@@ -32,7 +32,7 @@ pagseguro.add_item(10202, 'O nome do item', price='200.00')
 
 Podemos adicionar algumas configurações ao nosso checkout, como referencia e url de notificação.
 
-```
+```python
 pagseguro.reference = 'Referencia da ordem'
 pagseguro.notification_url = 'http://url-de-retorno.com'
 ```
@@ -41,7 +41,7 @@ pagseguro.notification_url = 'http://url-de-retorno.com'
 
 A partir do momento que adicionamos os itens e configuramos nossa ordem, é possível solicitar o checkout. Como resposta obteremos um objeto com atributos de código e url de pagamento.
 
-```
+```python
 response = pagseguro.checkout()
 response.code # Código para processar a ordem
 response.payment_url # URL montada para pagamento da ordem
@@ -51,7 +51,7 @@ response.payment_url # URL montada para pagamento da ordem
 
 Quando o PagSeguro obtem uma atualizando de status de uma ordem, ele fará um post na URL de notificação previamente configurada. Podemos utilizar isso para obter novas informações sobre a ordem específica.
 
-```
+```python
 code = request.POST['notificationCode']
 response = pagseguro.check_notification(code)
 
