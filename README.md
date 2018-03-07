@@ -1,14 +1,14 @@
-#PagSeguro Python API
+# PagSeguro Python API
 É um simples módulo para criar transações e receber o status de notificação.
 
 
-##Instalando
+## Instalando
 
 ```bash
 pip install pagseguro-api-v2
 ```
 
-##Inicializando a API com SandBox
+## Inicializando a API com SandBox
 
 Caso você esteja trabalhando em ambiente de produção, não é necessário instanciar a configuração
 
@@ -19,7 +19,7 @@ pagseguro = PagSeguro(token='seu-token',
                       email='seu@email.com', config=config)
 ```
 
-##Adicionando itens a ordem
+## Adicionando itens a ordem
 
 Antes de tentarmos fazer o checkout da ordem, é necessário adicionar items.
 
@@ -28,7 +28,7 @@ pagseguro.add_item(10201, 'O nome do item', price='100.00')
 pagseguro.add_item(10202, 'O nome do item', price='200.00')
 ```
 
-##Configurações adicionais
+## Configurações adicionais
 
 Podemos adicionar algumas configurações ao nosso checkout, como referencia e url de notificação.
 
@@ -37,7 +37,7 @@ pagseguro.reference = 'Referencia da ordem'
 pagseguro.notification_url = 'http://url-de-retorno.com'
 ```
 
-##Fazendo o checkout da ordem
+## Fazendo o checkout da ordem
 
 A partir do momento que adicionamos os itens e configuramos nossa ordem, é possível solicitar o checkout. Como resposta obteremos um objeto com atributos de código e url de pagamento.
 
@@ -61,7 +61,7 @@ print(response.transaction.get('reference'))
 ```
 
 
-##Quer ajudar?
+## Quer ajudar?
 Manda um pull request.
 
 ### Créditos
